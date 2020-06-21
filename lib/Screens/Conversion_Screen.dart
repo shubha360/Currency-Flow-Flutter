@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:currencies/Components/Data_Fetching.dart';
 import 'package:currencies/Screens/Bottom_Currency_List.dart';
 import 'package:currencies/Screens/Information_Screen.dart';
+import 'package:currencies/Size_Config.dart';
 import 'Top_Currency_List.dart';
 import 'package:flutter/material.dart';
 import 'package:currencies/Components/Lists.dart';
@@ -36,6 +37,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     String amountToString = preDefinedAmount.toString();
 
     return Scaffold(
@@ -76,7 +78,11 @@ class _ConversionScreenState extends State<ConversionScreen> {
                           },
                           child: Text(
                             '$topSelectedCurrencyName',
-                            style: kCurrencyNameStyle(kSecondaryColor),
+                            style: TextStyle(
+                              color: kSecondaryColor,
+                              fontSize: SizeConfig.safeBlockHorizontal * 8,
+                              fontWeight: FontWeight.bold,
+                            ),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -89,19 +95,28 @@ class _ConversionScreenState extends State<ConversionScreen> {
                               children: <Widget>[
                                 Container(
                                   width: amountToString.length == 0
-                                      ? 20
+                                      ? SizeConfig.safeBlockHorizontal * 10
                                       : amountToString.length == 1
-                                          ? 50
+                                          ? SizeConfig.safeBlockHorizontal * 20
                                           : amountToString.length == 2
-                                              ? 100
+                                              ? SizeConfig.safeBlockHorizontal *
+                                                  30
                                               : amountToString.length == 3
-                                                  ? 140
+                                                  ? SizeConfig
+                                                          .safeBlockHorizontal *
+                                                      40
                                                   : amountToString.length == 4
-                                                      ? 185
+                                                      ? SizeConfig
+                                                              .safeBlockHorizontal *
+                                                          50
                                                       : amountToString.length ==
                                                               5
-                                                          ? 230
-                                                          : 280,
+                                                          ? SizeConfig
+                                                                  .safeBlockHorizontal *
+                                                              60
+                                                          : SizeConfig
+                                                                  .safeBlockHorizontal *
+                                                              70,
                                   child: TextField(
                                     onChanged: (value) {
                                       setState(() {
@@ -113,7 +128,8 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                       updateUI();
                                     },
                                     style: TextStyle(
-                                      fontSize: 80,
+                                      fontSize:
+                                          SizeConfig.safeBlockHorizontal * 20,
                                       color: kSecondaryColor,
                                     ),
                                     decoration: InputDecoration(
@@ -137,13 +153,22 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                 ),
                                 Text(
                                   '$topSelectedCurrencySymbol',
-                                  style: kCurrencySymbolStyle(kSecondaryColor),
+                                  style: TextStyle(
+                                    color: kSecondaryColor,
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 6,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 )
                               ],
                             ),
                             Text(
                               '$topSelectedCurrencyCode',
-                              style: kCurrencyCodeStyle(kSecondaryColor),
+                              style: TextStyle(
+                                fontSize: SizeConfig.safeBlockHorizontal * 8,
+                                color: kSecondaryColor,
+                                fontFamily: kCustomFont,
+                              ),
                             ),
                           ],
                         ),
@@ -181,7 +206,11 @@ class _ConversionScreenState extends State<ConversionScreen> {
                           },
                           child: Text(
                             '$bottomSelectedCurrencyName',
-                            style: kCurrencyNameStyle(kPrimaryColor),
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontSize: SizeConfig.safeBlockHorizontal * 8,
+                              fontWeight: FontWeight.bold,
+                            ),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -198,10 +227,17 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                     style: TextStyle(
                                       color: kPrimaryColor,
                                       fontSize: output.length < 9
-                                          ? 80
+                                          ? SizeConfig.safeBlockHorizontal * 20
                                           : output.length < 11
-                                              ? 60
-                                              : output.length < 16 ? 40 : 20,
+                                              ? SizeConfig.safeBlockHorizontal *
+                                                  15
+                                              : output.length < 16
+                                                  ? SizeConfig
+                                                          .safeBlockHorizontal *
+                                                      12
+                                                  : SizeConfig
+                                                          .safeBlockHorizontal *
+                                                      8,
                                     ),
                                   ),
                                   onTap: () {
@@ -216,13 +252,22 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                 ),
                                 Text(
                                   '$bottomSelectedCurrencySymbol',
-                                  style: kCurrencySymbolStyle(kPrimaryColor),
+                                  style: TextStyle(
+                                    color: kPrimaryColor,
+                                    fontSize:
+                                        SizeConfig.safeBlockHorizontal * 6,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 )
                               ],
                             ),
                             Text(
                               '$bottomSelectedCurrencyCode',
-                              style: kCurrencyCodeStyle(kPrimaryColor),
+                              style: TextStyle(
+                                fontSize: SizeConfig.safeBlockHorizontal * 8,
+                                color: kPrimaryColor,
+                                fontFamily: kCustomFont,
+                              ),
                             ),
                           ],
                         ),
@@ -241,19 +286,19 @@ class _ConversionScreenState extends State<ConversionScreen> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.all(15),
+                  padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal * 4),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: kSecondaryColor,
                     border: Border.all(
                       color: kPrimaryColor,
-                      width: 4,
+                      width: SizeConfig.safeBlockHorizontal * 1,
                     ),
                   ),
                   child: FaIcon(
                     FontAwesomeIcons.paintRoller,
                     color: kPrimaryColor,
-                    size: 25,
+                    size: SizeConfig.safeBlockHorizontal * 7,
                   ),
                 ),
               ),

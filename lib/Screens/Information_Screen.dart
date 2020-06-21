@@ -1,4 +1,5 @@
 import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Size_Config.dart';
 import 'package:flutter/material.dart';
 
 class InformationScreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class InformationScreen extends StatefulWidget {
 class _InformationScreenState extends State<InformationScreen> {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: kSecondaryColor,
       appBar: AppBar(
@@ -25,80 +27,25 @@ class _InformationScreenState extends State<InformationScreen> {
               child: Icon(
                 Icons.report,
                 color: kPrimaryColor,
-                size: 100,
+                size: SizeConfig.safeBlockHorizontal * 30,
               ),
             ),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Container(
-                    child: Text(
-                      'Not happy with the rates?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                  ),
-                  Container(
-                    child: Text(
-                      'Unable to find the currency(s) you\'re looking for?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                  ),
-                  Container(
-                    child: Text(
-                      'Having trouble with any feature?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                  ),
-                  Container(
-                    child: Text(
-                      'Suggestions going through mind?',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        letterSpacing: 1,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 10,
-                    ),
-                  ),
+                  textContainer('Not happy with the rates?'),
+                  textContainer(
+                      'Unable to find the currency(s) you\'re looking for?'),
+                  textContainer('Having trouble with any feature?'),
+                  textContainer('Suggestions going through mind?'),
                 ],
               ),
             ),
             Expanded(
               child: Container(
                 padding: EdgeInsets.symmetric(
-                  horizontal: 20,
+                  horizontal: SizeConfig.safeBlockHorizontal * 10,
                 ),
                 child: RichText(
                   text: TextSpan(
@@ -106,7 +53,7 @@ class _InformationScreenState extends State<InformationScreen> {
                         'As a neophyte developer, it will be great to know about your thoughts. Please drop an email at',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 20,
+                      fontSize: SizeConfig.safeBlockHorizontal * 5,
                       height: 1.5,
                     ),
                     children: <TextSpan>[
@@ -114,7 +61,7 @@ class _InformationScreenState extends State<InformationScreen> {
                         text: '\ndevelopment.ionosphere@gmail.com',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -122,7 +69,7 @@ class _InformationScreenState extends State<InformationScreen> {
                         text: '\nwhenever you like.',
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5,
                           letterSpacing: 3,
                         ),
                       ),
@@ -136,4 +83,22 @@ class _InformationScreenState extends State<InformationScreen> {
       ),
     );
   }
+}
+
+Container textContainer(String text) {
+  return Container(
+    child: Text(
+      '$text',
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: SizeConfig.safeBlockHorizontal * 5,
+        letterSpacing: 1,
+      ),
+      textAlign: TextAlign.left,
+    ),
+    padding: EdgeInsets.symmetric(
+      horizontal: SizeConfig.safeBlockHorizontal * 10,
+      vertical: SizeConfig.safeBlockVertical * 1,
+    ),
+  );
 }

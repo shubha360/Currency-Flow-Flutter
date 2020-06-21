@@ -10,7 +10,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Currency Grabber"
+        android:label="Currency Flow"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
