@@ -1,5 +1,4 @@
-![Main Sceenshot](Screenshot_1592744716.png | width=100)
-
+<img src="Screenshot_1592744716.png" width="48">
 
 # Currency Flow
 
