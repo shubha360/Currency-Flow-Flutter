@@ -1,4 +1,4 @@
-<img src="Screenshot_1592744716.png" width="48">
+<img src="Screenshot_1592744716.png" width="100">
 
 # Currency Flow
 
