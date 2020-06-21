@@ -1,4 +1,4 @@
-![Main Sceenshot](https://drive.google.com/file/d/1zsrr7GBsYcOd6uPLud0HvAnqoNXonDGZ/view?usp=sharing)
+![Main Sceenshot](Screenshot_1592744716.png)
 
 
 # Currency Flow
