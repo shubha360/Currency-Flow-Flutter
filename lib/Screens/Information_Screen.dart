@@ -10,9 +10,9 @@ class _InformationScreenState extends State<InformationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kSecondaryColor,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: kSecondaryColor,
         leading: BackButton(
           color: kPrimaryColor,
         ),
@@ -111,7 +111,7 @@ class _InformationScreenState extends State<InformationScreen> {
                     ),
                     children: <TextSpan>[
                       TextSpan(
-                        text: '\nshubha360@outlook.com',
+                        text: '\ndevelopment.ionosphere@gmail.com',
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 20,

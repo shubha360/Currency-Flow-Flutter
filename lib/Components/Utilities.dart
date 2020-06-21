@@ -14,7 +14,8 @@ String bottomSelectedCurrencyName = currencyNameList[85];
 String bottomSelectedCurrencyCode = currencyCodeList[85];
 String bottomSelectedCurrencySymbol = currencySymbolList[85];
 
-const kPrimaryColor = Color(0xFFfe3a3d);
+Color kPrimaryColor = Color(0xFF1A237E);
+Color kSecondaryColor = Colors.white; //Color(0xFF84FFFF);
 const kCustomFont = 'Bitter';
 
 TextStyle kCurrencyNameStyle(Color color) {

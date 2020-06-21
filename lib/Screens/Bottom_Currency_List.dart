@@ -5,7 +5,7 @@ class BottomCurrencyList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: kSecondaryColor,
       body: SafeArea(
         child: kCurrencyListView(context, kPrimaryColor, kPrimaryColor),
       ),
