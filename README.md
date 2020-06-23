@@ -1,8 +1,8 @@
 <p align="center">
-<img src="Screenshots/First Impression.png" width="200" margin="20">
-<img src="Screenshots/Screenshot_1592892294.png" width="200" margin="20">
-<img src="Screenshots/Screenshot_1592892347.png" width="200" margin="20">
-<img src="Screenshots/Screenshot_1592892393.png" width="200" margin="20">
+<img src="Screenshots/First Impression.png" width="200">
+<img src="Screenshots/Screenshot_1592892294.png" width="200">
+<img src="Screenshots/Screenshot_1592892347.png" width="200">
+<img src="Screenshots/Screenshot_1592892393.png" width="200">
 </p>
 
 # Currency Flow
