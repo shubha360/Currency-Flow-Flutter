@@ -8,3 +8,9 @@
 # Currency Flow
 
 A currency converter flutter app.
+
+# License
+
+**MIT License**
+
+Copyright (c) 2020 Raquibul Islam
