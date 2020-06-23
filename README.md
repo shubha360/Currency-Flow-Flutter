@@ -15,4 +15,4 @@ A currency converter flutter app.
 
 Copyright (c) 2020 Raquibul Islam
 
-See [License file](other_file.md) for details.
+See [LICENSE.md](LICENSE.md) for details.
