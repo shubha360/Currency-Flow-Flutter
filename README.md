@@ -7,6 +7,8 @@
 
 # Currency Flow
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A currency converter flutter app.
 
 # License
@@ -15,4 +17,4 @@ A currency converter flutter app.
 
 Copyright (c) 2020 Raquibul Islam
 
-See [LICENSE.md](LICENSE) for details.
+See [LICENSE](LICENSE.md) for details.
