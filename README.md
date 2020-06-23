@@ -14,3 +14,5 @@ A currency converter flutter app.
 **MIT License**
 
 Copyright (c) 2020 Raquibul Islam
+
+See [License file](other_file.md) for details.
