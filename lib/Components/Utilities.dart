@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'Lists.dart';
 
-String output = '';
+String output = 'Fetching data';
 
 double preDefinedAmount = 100.00;
 double finalResult;
@@ -15,5 +15,5 @@ String bottomSelectedCurrencyCode = currencyCodeList[85];
 String bottomSelectedCurrencySymbol = currencySymbolList[85];
 
 Color kPrimaryColor = Color(0xFF1A237E);
-Color kSecondaryColor = Colors.white; //Color(0xFF84FFFF);
+Color kSecondaryColor = Colors.white;
 const kCustomFont = 'Bitter';

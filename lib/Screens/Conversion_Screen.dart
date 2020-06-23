@@ -1,6 +1,6 @@
 import 'dart:math';
-import 'package:currencies/Components/Data_Fetching.dart';
 import 'package:currencies/Screens/Bottom_Currency_List.dart';
+import 'package:currencies/Screens/Error_Screen.dart';
 import 'package:currencies/Screens/Information_Screen.dart';
 import 'package:currencies/Size_Config.dart';
 import 'Top_Currency_List.dart';
@@ -9,6 +9,8 @@ import 'package:currencies/Components/Lists.dart';
 import 'package:currencies/Components/Utilities.dart';
 import 'package:page_transition/page_transition.dart' as transition;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ConversionScreen extends StatefulWidget {
   @override
@@ -16,9 +18,49 @@ class ConversionScreen extends StatefulWidget {
 }
 
 class _ConversionScreenState extends State<ConversionScreen> {
+  int httpStatusCode;
+  String requestUrl;
+
+  Future<double> requestExchangeRate() async {
+    http.Response response = await http.get(
+        'https://free.currconv.com/api/v7/convert?q=${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode&compact=ultra&apiKey=2403a9dd5eeeb59060c2');
+
+    requestUrl = '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode';
+
+    double exchangeRate;
+
+    if (response.statusCode == 200) {
+      exchangeRate = double.parse((jsonDecode(response.body)[
+              '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode'])
+          .toString());
+    } else {
+      httpStatusCode = response.statusCode;
+      print(httpStatusCode);
+      final snackBar = SnackBar(
+        content: Text('An unexpected error occurred.'),
+        duration: Duration(hours: 24),
+        action: SnackBarAction(
+            label: 'See details',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ErrorScreen(
+                    errorStatusCode: httpStatusCode,
+                    requestUrl: requestUrl,
+                  ),
+                ),
+              );
+            }),
+      );
+      _scaffoldKey.currentState.showSnackBar(snackBar);
+    }
+    return exchangeRate;
+  }
+
   void updateUI() async {
     try {
-      double exchangeRate = await DataFetcher().requestExchangeRate();
+      double exchangeRate = await requestExchangeRate();
 
       finalResult = exchangeRate * preDefinedAmount;
       setState(() {
@@ -35,12 +77,15 @@ class _ConversionScreenState extends State<ConversionScreen> {
     updateUI();
   }
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     String amountToString = preDefinedAmount.toString();
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: kPrimaryColor,
       body: Center(
         child: Stack(
