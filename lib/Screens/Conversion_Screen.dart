@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 import 'package:currencies/Screens/Bottom_Currency_List.dart';
 import 'package:currencies/Screens/Error_Screen.dart';
@@ -21,39 +22,50 @@ class _ConversionScreenState extends State<ConversionScreen> {
   int httpStatusCode;
   String requestUrl;
 
+  Future onRequestTimeOut() async {}
+
   Future<double> requestExchangeRate() async {
-    http.Response response = await http.get(
-        'https://free.currconv.com/api/v7/convert?q=${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode&compact=ultra&apiKey=2403a9dd5eeeb59060c2');
-
-    requestUrl = '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode';
-
     double exchangeRate;
 
-    if (response.statusCode == 200) {
-      exchangeRate = double.parse((jsonDecode(response.body)[
-              '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode'])
-          .toString());
-    } else {
-      httpStatusCode = response.statusCode;
-      print(httpStatusCode);
-      final snackBar = SnackBar(
-        content: Text('An unexpected error occurred.'),
-        duration: Duration(hours: 24),
-        action: SnackBarAction(
-            label: 'See details',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ErrorScreen(
-                    errorStatusCode: httpStatusCode,
-                    requestUrl: requestUrl,
+    try {
+      http.Response response = await http.get(
+          'https://free.currconv.com/api/v7/convert?q=${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode&compact=ultra&apiKey=2403a9dd5eeeb59060c2');
+
+      requestUrl = '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode';
+
+      if (response.statusCode == 200) {
+        exchangeRate = double.parse((jsonDecode(response.body)[
+                '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode'])
+            .toString());
+      } else {
+        httpStatusCode = response.statusCode;
+        print(httpStatusCode);
+        final snackBar = SnackBar(
+          content: Text('An unexpected error occurred.'),
+          duration: Duration(hours: 24),
+          action: SnackBarAction(
+              label: 'See details',
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ErrorScreen(
+                      errorStatusCode: httpStatusCode,
+                      requestUrl: requestUrl,
+                    ),
                   ),
-                ),
-              );
-            }),
+                );
+              }),
+        );
+        _scaffoldKey.currentState.showSnackBar(snackBar);
+      }
+    } on SocketException catch (_) {
+      final exceptionSnackBar = SnackBar(
+        content: Text('Looks like your internet connection is not stable.'),
       );
-      _scaffoldKey.currentState.showSnackBar(snackBar);
+      Future.delayed(Duration(seconds: 3), () {
+        _scaffoldKey.currentState.showSnackBar(exceptionSnackBar);
+      });
     }
     return exchangeRate;
   }
