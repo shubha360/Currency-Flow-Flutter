@@ -24,7 +24,7 @@ API used - https://free.currencyconverterapi.com
 Packeages used -
 
 - [http 0.12.1](https://pub.dev/packages/http)
-- [page_transition 1.1.5]https://pub.dev/packages/page_transition)
+- [page_transition 1.1.5](https://pub.dev/packages/page_transition)
 - [font_awesome_flutter](https://pub.dev/packages/font_awesome_flutter)
 
 Contact developer at - development.ionosphere@gmail.com
