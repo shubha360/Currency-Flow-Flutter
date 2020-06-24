@@ -19,19 +19,21 @@ class ConversionScreen extends StatefulWidget {
 }
 
 class _ConversionScreenState extends State<ConversionScreen> {
+  // To show http error status code in the error screen if response code != 200.
   int httpStatusCode;
-  String requestUrl;
-
-  Future onRequestTimeOut() async {}
+  // To show requested currency in the error screen if response code != 200.
+  String requestCurrency;
 
   Future<double> requestExchangeRate() async {
     double exchangeRate;
 
+    // Used try-catch block to catch internet connectivity related exception.
     try {
       http.Response response = await http.get(
           'https://free.currconv.com/api/v7/convert?q=${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode&compact=ultra&apiKey=2403a9dd5eeeb59060c2');
 
-      requestUrl = '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode';
+      requestCurrency =
+          '${topSelectedCurrencyCode}_$bottomSelectedCurrencyCode';
 
       if (response.statusCode == 200) {
         exchangeRate = double.parse((jsonDecode(response.body)[
@@ -51,7 +53,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
                   MaterialPageRoute(
                     builder: (context) => ErrorScreen(
                       errorStatusCode: httpStatusCode,
-                      requestUrl: requestUrl,
+                      requestUrl: requestCurrency,
                     ),
                   ),
                 );
@@ -89,6 +91,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
     updateUI();
   }
 
+  // GlobalKey to show snackbar.
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

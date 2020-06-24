@@ -1,3 +1,4 @@
+// List containing all the available currency names.
 final List<String> currencyNameList = <String>[
   'Afghan Afghani',
   'Algerian Dinar',
@@ -93,6 +94,7 @@ final List<String> currencyNameList = <String>[
   'Zambian kwacha'
 ];
 
+// List containing all the available currency codes.
 final List<String> currencyCodeList = <String>[
   'AFN',
   'DZD',
@@ -188,6 +190,7 @@ final List<String> currencyCodeList = <String>[
   'ZMW'
 ];
 
+// List containing all the available currency symbols.
 final List<String> currencySymbolList = <String>[
   '؋',
   'د.ج',
