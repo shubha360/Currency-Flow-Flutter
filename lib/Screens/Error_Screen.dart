@@ -1,4 +1,4 @@
-import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Utilities.dart';
 import 'package:currencies/Size_Config.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +10,8 @@ class ErrorScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return Scaffold(
       backgroundColor: kPrimaryColor,
       body: SafeArea(

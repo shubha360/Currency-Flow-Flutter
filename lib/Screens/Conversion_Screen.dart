@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:math';
+import 'package:currencies/Components/ColorButton.dart';
 import 'package:currencies/Screens/Bottom_Currency_List.dart';
 import 'package:currencies/Screens/Error_Screen.dart';
 import 'package:currencies/Screens/Information_Screen.dart';
@@ -7,9 +8,9 @@ import 'package:currencies/Size_Config.dart';
 import 'Top_Currency_List.dart';
 import 'package:flutter/material.dart';
 import 'package:currencies/Components/Lists.dart';
-import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Utilities.dart';
 import 'package:page_transition/page_transition.dart' as transition;
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -23,6 +24,8 @@ class _ConversionScreenState extends State<ConversionScreen> {
   int httpStatusCode;
   // To show requested currency in the error screen if response code != 200.
   String requestCurrency;
+
+  Future onRequestTimeOut() async {}
 
   Future<double> requestExchangeRate() async {
     double exchangeRate;
@@ -72,6 +75,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
     return exchangeRate;
   }
 
+  // This
   void updateUI() async {
     try {
       double exchangeRate = await requestExchangeRate();
@@ -138,11 +142,8 @@ class _ConversionScreenState extends State<ConversionScreen> {
                           },
                           child: Text(
                             '$topSelectedCurrencyName',
-                            style: TextStyle(
-                              color: kSecondaryColor,
-                              fontSize: SizeConfig.safeBlockHorizontal * 8,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kCurrencyNameStyle.copyWith(
+                                color: kSecondaryColor),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -213,22 +214,15 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                 ),
                                 Text(
                                   '$topSelectedCurrencySymbol',
-                                  style: TextStyle(
-                                    color: kSecondaryColor,
-                                    fontSize:
-                                        SizeConfig.safeBlockHorizontal * 6,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: kCurrencySymbolStyle.copyWith(
+                                      color: kSecondaryColor),
                                 )
                               ],
                             ),
                             Text(
                               '$topSelectedCurrencyCode',
-                              style: TextStyle(
-                                fontSize: SizeConfig.safeBlockHorizontal * 8,
-                                color: kSecondaryColor,
-                                fontFamily: kCustomFont,
-                              ),
+                              style: kCurrencyCodeStyle.copyWith(
+                                  color: kSecondaryColor),
                             ),
                           ],
                         ),
@@ -266,11 +260,8 @@ class _ConversionScreenState extends State<ConversionScreen> {
                           },
                           child: Text(
                             '$bottomSelectedCurrencyName',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: SizeConfig.safeBlockHorizontal * 8,
-                              fontWeight: FontWeight.bold,
-                            ),
+                            style: kCurrencyNameStyle.copyWith(
+                                color: kPrimaryColor),
                             textAlign: TextAlign.center,
                           ),
                         ),
@@ -312,22 +303,15 @@ class _ConversionScreenState extends State<ConversionScreen> {
                                 ),
                                 Text(
                                   '$bottomSelectedCurrencySymbol',
-                                  style: TextStyle(
-                                    color: kPrimaryColor,
-                                    fontSize:
-                                        SizeConfig.safeBlockHorizontal * 6,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: kCurrencySymbolStyle.copyWith(
+                                      color: kPrimaryColor),
                                 )
                               ],
                             ),
                             Text(
                               '$bottomSelectedCurrencyCode',
-                              style: TextStyle(
-                                fontSize: SizeConfig.safeBlockHorizontal * 8,
-                                color: kPrimaryColor,
-                                fontFamily: kCustomFont,
-                              ),
+                              style: kCurrencyCodeStyle.copyWith(
+                                  color: kPrimaryColor),
                             ),
                           ],
                         ),
@@ -345,22 +329,7 @@ class _ConversionScreenState extends State<ConversionScreen> {
                         .primaries[Random().nextInt(Colors.primaries.length)];
                   });
                 },
-                child: Container(
-                  padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal * 4),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: kSecondaryColor,
-                    border: Border.all(
-                      color: kPrimaryColor,
-                      width: SizeConfig.safeBlockHorizontal * 1,
-                    ),
-                  ),
-                  child: FaIcon(
-                    FontAwesomeIcons.paintRoller,
-                    color: kPrimaryColor,
-                    size: SizeConfig.safeBlockHorizontal * 7,
-                  ),
-                ),
+                child: ColorButton(),
               ),
             ),
           ],

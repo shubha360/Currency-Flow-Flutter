@@ -1,8 +1,8 @@
-import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Components/TextContainer.dart';
+import 'package:currencies/Utilities.dart';
 import 'package:currencies/Size_Config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_clipboard_manager/flutter_clipboard_manager.dart';
 
 class InformationScreen extends StatefulWidget {
   @override
@@ -14,6 +14,7 @@ class _InformationScreenState extends State<InformationScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: kSecondaryColor,
@@ -36,11 +37,12 @@ class _InformationScreenState extends State<InformationScreen> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                textContainer('Not happy with the rates?'),
-                textContainer(
-                    'Unable to find the currency(s) you\'re looking for?'),
-                textContainer('Having trouble with any feature?'),
-                textContainer('Suggestions going through mind?'),
+                TextContainer(text: 'Not happy with the rates?'),
+                TextContainer(
+                    text:
+                        'Unable to find the currency(s) you\'re looking for?'),
+                TextContainer(text: 'Having trouble with any feature?'),
+                TextContainer(text: 'Suggestions going through mind?'),
               ],
             ),
             Container(
@@ -101,22 +103,4 @@ class _InformationScreenState extends State<InformationScreen> {
       ),
     );
   }
-}
-
-Container textContainer(String text) {
-  return Container(
-    child: Text(
-      '$text',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: SizeConfig.safeBlockHorizontal * 5,
-        letterSpacing: 1,
-      ),
-      textAlign: TextAlign.left,
-    ),
-    padding: EdgeInsets.symmetric(
-      horizontal: SizeConfig.safeBlockHorizontal * 10,
-      vertical: SizeConfig.safeBlockVertical * 1,
-    ),
-  );
 }
