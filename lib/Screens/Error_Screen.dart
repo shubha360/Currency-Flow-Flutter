@@ -1,5 +1,6 @@
-import 'package:currencies/Utilities.dart';
-import 'package:currencies/Size_Config.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
+import 'package:currencies/Widgets/InfoText.dart';
 import 'package:flutter/material.dart';
 
 class ErrorScreen extends StatelessWidget {
@@ -86,34 +87,11 @@ class ErrorScreen extends StatelessWidget {
                         SizeConfig.safeBlockVertical * 2,
                         SizeConfig.safeBlockHorizontal * 5,
                         SizeConfig.safeBlockVertical * 2),
-                    child: RichText(
-                      text: TextSpan(
-                        text:
-                            'Please contact the developer regarding this inconvenience. The most effective and easiest way of doing this is taking a screenshot and then mailing it to ',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: SizeConfig.safeBlockHorizontal * 5,
-                          height: 1.5,
-                        ),
-                        children: <TextSpan>[
-                          TextSpan(
-                            text: '\ndevelopment.ionosphere@gmail.com',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: SizeConfig.safeBlockHorizontal * 5,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          TextSpan(
-                            text: '\nThanks for your patience.',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: SizeConfig.safeBlockHorizontal * 5,
-                              letterSpacing: 3,
-                            ),
-                          ),
-                        ],
-                      ),
+                    child: InfoText(
+                      firstText:
+                          'Please contact the developer regarding this inconvenience. The most effective and easiest way of doing this is taking a screenshot and then mailing it to',
+                      secondText: 'development.ionosphere@gmail.com',
+                      thirdText: 'Thanks for your patience.',
                     ),
                   ),
                 ),

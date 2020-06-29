@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Size_Config.dart';
+import '../Components/Size_Config.dart';
 
 // Used in information screen.
 

@@ -1,6 +1,7 @@
-import 'package:currencies/Components/TextContainer.dart';
-import 'package:currencies/Utilities.dart';
-import 'package:currencies/Size_Config.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Widgets/TextContainer.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
+import 'package:currencies/Widgets/InfoText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -49,34 +50,11 @@ class _InformationScreenState extends State<InformationScreen> {
               padding: EdgeInsets.symmetric(
                 horizontal: SizeConfig.safeBlockHorizontal * 10,
               ),
-              child: RichText(
-                text: TextSpan(
-                  text:
-                      'As a neophyte developer, it will be great to know about your thoughts. Please drop an email at',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: SizeConfig.safeBlockHorizontal * 5,
-                    height: 1.5,
-                  ),
-                  children: <TextSpan>[
-                    TextSpan(
-                      text: '\ndevelopment.ionosphere@gmail.com',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.safeBlockHorizontal * 5,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    TextSpan(
-                      text: '\nwhenever you like.',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: SizeConfig.safeBlockHorizontal * 5,
-                        letterSpacing: 3,
-                      ),
-                    ),
-                  ],
-                ),
+              child: InfoText(
+                firstText:
+                    'As a neophyte developer, it will be great to know about your thoughts. Please drop an email at',
+                secondText: 'development.ionosphere@gmail.com',
+                thirdText: 'whenever you like.',
               ),
             ),
             SizedBox(

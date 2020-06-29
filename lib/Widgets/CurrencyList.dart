@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:currencies/Size_Config.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
 import 'package:currencies/Components/Lists.dart';
 
 // Used in both of currency list screens.

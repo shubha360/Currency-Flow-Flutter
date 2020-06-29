@@ -1,16 +1,15 @@
 import 'dart:io';
 import 'dart:math';
-import 'package:currencies/Components/ColorButton.dart';
+import 'package:currencies/Widgets/ColorButton.dart';
 import 'package:currencies/Screens/Bottom_Currency_List.dart';
 import 'package:currencies/Screens/Error_Screen.dart';
 import 'package:currencies/Screens/Information_Screen.dart';
-import 'package:currencies/Size_Config.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
 import 'Top_Currency_List.dart';
 import 'package:flutter/material.dart';
 import 'package:currencies/Components/Lists.dart';
-import 'package:currencies/Utilities.dart';
+import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
 import 'package:page_transition/page_transition.dart' as transition;
-
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -75,7 +74,6 @@ class _ConversionScreenState extends State<ConversionScreen> {
     return exchangeRate;
   }
 
-  // This
   void updateUI() async {
     try {
       double exchangeRate = await requestExchangeRate();
@@ -321,16 +319,13 @@ class _ConversionScreenState extends State<ConversionScreen> {
                 )
               ],
             ),
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    kPrimaryColor = Colors
-                        .primaries[Random().nextInt(Colors.primaries.length)];
-                  });
-                },
-                child: ColorButton(),
-              ),
+            ColorButton(
+              onPressed: () {
+                setState(() {
+                  kPrimaryColor = Colors
+                      .primaries[Random().nextInt(Colors.primaries.length)];
+                });
+              },
             ),
           ],
         ),
