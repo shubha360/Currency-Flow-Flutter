@@ -13,26 +13,26 @@ class InfoText extends StatelessWidget {
     SizeConfig().init(context);
     return RichText(
       text: TextSpan(
-        text: '$firstText',
         style: TextStyle(
-          color: Colors.black,
           fontSize: SizeConfig.safeBlockHorizontal * 5,
-          height: 1.5,
+          color: Colors.black,
         ),
         children: <TextSpan>[
           TextSpan(
+            text: '$firstText',
+            style: TextStyle(
+              height: 1.5,
+            ),
+          ),
+          TextSpan(
             text: '\n$secondText',
             style: TextStyle(
-              color: Colors.black,
-              fontSize: SizeConfig.safeBlockHorizontal * 5,
               fontWeight: FontWeight.bold,
             ),
           ),
           TextSpan(
             text: '\n$thirdText',
             style: TextStyle(
-              color: Colors.black,
-              fontSize: SizeConfig.safeBlockHorizontal * 5,
               letterSpacing: 3,
             ),
           ),

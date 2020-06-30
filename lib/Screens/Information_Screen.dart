@@ -1,6 +1,6 @@
-import 'file:///D:/Shubha/Flutter/currencies/lib/Widgets/TextContainer.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
+import 'package:currencies/Widgets/TextContainer.dart';
+import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Components/Size_Config.dart';
 import 'package:currencies/Widgets/InfoText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -24,7 +24,6 @@ class _InformationScreenState extends State<InformationScreen> {
         leading: BackButton(
           color: kPrimaryColor,
         ),
-        elevation: 0,
       ),
       body: Center(
         child: Column(

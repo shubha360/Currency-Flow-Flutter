@@ -1,6 +1,6 @@
-import 'file:///D:/Shubha/Flutter/currencies/lib/Widgets/CurrencyList.dart';
+import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Widgets/CurrencyList.dart';
 import 'package:flutter/material.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
 
 class BottomCurrencyList extends StatelessWidget {
   @override

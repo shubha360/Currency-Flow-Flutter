@@ -1,5 +1,5 @@
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
+import 'package:currencies/Components/Size_Config.dart';
+import 'package:currencies/Components/Utilities.dart';
 import 'package:currencies/Widgets/InfoText.dart';
 import 'package:flutter/material.dart';
 

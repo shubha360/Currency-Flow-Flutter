@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Utilities.dart';
-import 'file:///D:/Shubha/Flutter/currencies/lib/Components/Size_Config.dart';
+import 'package:currencies/Components/Utilities.dart';
+import 'package:currencies/Components/Size_Config.dart';
 
 // Used in the conversion screen.
 
